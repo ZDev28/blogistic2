@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Blogistic | Home</title>
+</head>
+<body style="background: #3279a8;">
+    <div style="background: #a4a832;" class="container">
+        <h1 style="color: white;" class="mb-4">Blogs<br>Make and Read</h1>
+        <button class="btn btn-info" onclick="window.location.reload()">Refresh</button>
+        <a href="/articles/new" class="btn btn-success">Make A New Blog</a>
+        <% articles.forEach(article => { %>
+            <div style="background: black; color: aqua;" class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <small>by <%= article.auth %></small>
+                    <br>
+                    <div class="card-subtitle text-muted mb-2">
+                        in <%= article.date.toLocaleDateString() %>
+                    </div>
+                </div>
+                <%= article.description %>
+                <br>
+                <div>
+                  <div id="comments-list"></div>
+                </div>
+                <div class="card-text mb-2">
+                    <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                    <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+                    <form class="d-inline" action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://htmlcommentbox.com/static/skins/mike/mike.css">
+    <style>
+        code{
+            background: white;
+            border-radius: 10px 10px 10px 10px;
+        }
+    </style>
+    <title>Blogistic | Read</title>
+</head>
+<body style="transition: all 0.4 ease; background: #3279a8;">
+    <div class="container" style="background: #a4a832;">
+        <h1 style="color: white;" class="mb-4"><%= article.title %></h1>
+        <div class="text-muted"><%= article.auth %></div>
+        <div style="color: white;" class="text-muted mb-2"><%= article.date.toLocaleDateString() %></div>
+        <a href="/" class="btn btn-secondary">All Blogs</a>
+        <!--<a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>-->
+        <div>
+            <%- article.sanitizedHtml %>
+        </div>
+        <div class="mb-4">
+          <!-- begin wwww.htmlcommentbox.com -->
+          <div id="HCB_comment_box">loading comments...</div>
+          <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+          <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%246ge4TLnZ.CZLubN0xDm8f1"+"&opts=16862&num=10&ts=1594657131772");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+      </div>
+      <!-- end www.htmlcommentbox.com -->
+    </div>
+</body>
+</html>

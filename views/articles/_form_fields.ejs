@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<div class="container" style="background: #a4a832;">
+  <div class="form-group">
+      <label style="color: white;" for="title">Title</label>
+      <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+  </div>
+  <div class="form-group">
+      <label style="color: white;" for="auth">Author</label>
+      <input required value="<%= article.auth %>" name="auth" id="auth" class="form-control">
+  </div>
+  <div class="form-group">
+      <label style="color: white;" for="description">Short Description</label>
+      <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
+  </div>
+  <div class="form-group">
+      <label style="color: white;" for="markdown">Content</label>
+      <textarea id="editor" name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
+  </div>
+  <a href="/" class="btn btn-secondary">Cancel</a>
+  <button type="submit" class="btn btn-primary">Save Blog</button>
+</div>
